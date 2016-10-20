@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
     <title>Wikipedia Viewer</title>
   </head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
   <body>
     <div ng-app="MyApp" ng-controller="myController as ctrl">
       <div class="input-container">
-        <h4>Hover on icon to search</h4>
+        <h4>Hover/Click icon to search</h4>
         <div class="input-wrap">
           <form ng-submit>
-            <input type="text" placeholder="Search Wikipedia" ng-model="ctrl.search">
-            <button class="icon" type="submit" ng-click="ctrl.submitSearch()"><i class="fa fa-search fa-3x" aria-hidden="true"></i></button>
+            <input type="text" id="input" placeholder="Search Wikipedia" ng-model="ctrl.search">
+            <button class="icon" type="submit" ng-click="ctrl.submitSearch(this)"><i class="fa fa-search fa-3x" aria-hidden="true"></i></button>
           </form>
         </div>
         <br>
         <button class="random"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">View random article</a></button>
       </div>
-
+      <div class="no-match" ng-show="ctrl.noMatch"><h2>No match found!</h2></div>
       <div class = "pages-wrap" ng-repeat="page in ctrl.wikiPages">
         <h1><a ng-href="{{page.link}}" target="_blank">{{page.title}}</a></h1>
         <p>{{page.body}}</p>
@@ -27,5 +33,6 @@
         <p>coded by: michael alegrado</p>
       </div>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>

@@ -58,7 +58,9 @@ input[type=text] {
   opacity:1;
   width:150px;
 }
-
+.no-match {
+  text-align: center;
+}
 .ng-enter {
   opacity:0;
   transition:0.5s;
