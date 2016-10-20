@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wikipedia Viewer</title>
+  </head>
+  <body>
+    <div ng-app="MyApp" ng-controller="myController as ctrl">
+      <div class="input-container">
+        <h4>Hover on icon to search</h4>
+        <div class="input-wrap">
+          <form ng-submit>
+            <input type="text" placeholder="Search Wikipedia" ng-model="ctrl.search">
+            <button class="icon" type="submit" ng-click="ctrl.submitSearch()"><i class="fa fa-search fa-3x" aria-hidden="true"></i></button>
+          </form>
+        </div>
+        <br>
+        <button class="random"><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">View random article</a></button>
+      </div>
+
+      <div class = "pages-wrap" ng-repeat="page in ctrl.wikiPages">
+        <h1><a ng-href="{{page.link}}" target="_blank">{{page.title}}</a></h1>
+        <p>{{page.body}}</p>
+      </div>
+      <br>
+      <div style="text-align:center">
+        <p>coded by: michael alegrado</p>
+      </div>
+    </div>
+  </body>
+</html>
