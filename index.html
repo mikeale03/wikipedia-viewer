@@ -17,7 +17,7 @@
         <div class="input-wrap">
           <form ng-submit>
             <input type="text" id="input" placeholder="Search Wikipedia" ng-model="ctrl.search">
-            <button class="icon" type="submit" ng-click="ctrl.submitSearch(this)"><i class="fa fa-search fa-3x" aria-hidden="true"></i></button>
+            <button class="icon" type="submit" ng-click="ctrl.submitSearch()"><i class="fa fa-search fa-3x" aria-hidden="true"></i></button>
           </form>
         </div>
         <br>
@@ -27,6 +27,9 @@
       <div class = "pages-wrap" ng-repeat="page in ctrl.wikiPages">
         <h1><a ng-href="{{page.link}}" target="_blank">{{page.title}}</a></h1>
         <p>{{page.body}}</p>
+      </div>
+      <div style="text-align:center">
+        <button class="show-more" ng-show="ctrl.showMore" ng-click="ctrl.showMoreResult()">Show more results</button>
       </div>
       <br>
       <div style="text-align:center">

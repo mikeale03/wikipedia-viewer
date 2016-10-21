@@ -16,7 +16,7 @@ form {
   border-style:none;
   background-color:white;
 }
-.random {
+.random, .show-more {
   border: 2px solid black;
   margin:30px;
 }
